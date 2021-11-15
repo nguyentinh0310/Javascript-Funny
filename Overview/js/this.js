@@ -14,7 +14,7 @@
 // Object method
 // từ khoá `this` sẽ đề cập tới object gần nhất
 const student = {
-  name: "evondev",
+  name: "tinh",
   age: 27,
   sayHi: function () {
     console.log(

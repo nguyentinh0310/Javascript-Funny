@@ -1,7 +1,5 @@
 // cors: Cross origin resoure sharing
 // same origin
-// same origin: evondev.com evondev.com/posts
-// not same origin: evondev.com facebook.com
 // cors: access-control-allow-origin blocked
 
 // Status

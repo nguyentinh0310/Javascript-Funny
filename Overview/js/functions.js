@@ -47,7 +47,7 @@ logName();
 })();
 // Scope
 // Global scope, function scope
-let myName = "evondev"; // global scope
+let myName = "tinh"; // global scope
 function logYourName() {
   let myName2 = myName; // function scope
   console.log(myName2);
@@ -57,15 +57,15 @@ logYourName();
 // let message;
 if (2 > 1) {
   // block scope
-  let message = "Hello evondev";
-  // const message = "Hello evondev";
+  let message = "Hello tinh";
+  // const message = "Hello tinh";
   // global scope
   // hoisted
   message = "Hello Tuan";
 }
 // alert(message);
 // Lexical scope
-let aNewName = "Evondev"; // global scope
+let aNewName = "tinh"; // global scope
 function sayHello() {
   let message5 = "Hi"; // block scope
   console.log(`${message5} ${aNewName}`);

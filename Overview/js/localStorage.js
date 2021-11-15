@@ -1,5 +1,5 @@
 // 1. localStorage.setItem("key", "value")
-localStorage.setItem("name", "evondev");
+localStorage.setItem("name", "tinh");
 // 2. localStorage.getItem("key")
 console.log(localStorage.getItem("name"));
 // 3. localStorage.removeItem("key")

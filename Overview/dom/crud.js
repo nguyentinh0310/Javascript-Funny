@@ -11,7 +11,7 @@ div.className = "container wrapper";
 div.textContent =
   "Lorem ipsum dolor sit amet consectetur adipisicing elit. A, laboriosam error dolor dignissimos aliquam mollitia molestiae quibusdam provident voluptatum, rem recusandae consequuntur in eligendi aut laudantium, cum nesciunt. Laboriosam, accusantium?";
 div.innerHTML = `<div class="content"><h3></h3></div>`;
-div.setAttribute("data-name", "evondev");
+div.setAttribute("data-name", "tinh");
 // Bài tập tạo ra HTML như đã minh hoạ ở file HTML
 const card = document.createElement("div");
 card.classList.add("card");
@@ -21,7 +21,7 @@ cardImage.setAttribute("class", "card-image");
 card.appendChild(cardImage);
 body.appendChild(card);
 // 3. document.createTextNode
-const text = document.createTextNode("Hello my name is Evondev");
+const text = document.createTextNode("Hello my name is tinh");
 const h1 = document.createElement("h1");
 body.appendChild(h1);
 h1.appendChild(text);

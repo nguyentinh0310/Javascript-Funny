@@ -6,8 +6,8 @@ function Person(name) {
 Person.prototype.getName = function () {
   console.log(this.name);
 }
-const evondev = new Person("Evondev");
-evondev.getName();
+const tinh = new Person("tinh");
+tinh.getName();
 // Class
 class Person2 {
   constructor(name) {

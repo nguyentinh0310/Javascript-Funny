@@ -40,7 +40,7 @@ console.log(students1.join(" "));
 // includes -> Kiểm tra phần tử nào đó có trong mảng hay không?
 console.log("-----array.includes-----");
 console.log(students1.includes("Tinh")); // true
-console.log(students1.includes("evondev2")); // false
+console.log(students1.includes("tinh2")); // false
 
 
 const students1 = ["Tinh", "tuan", "nam", "thanh", "trung", "tuan"];

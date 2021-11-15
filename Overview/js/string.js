@@ -1,13 +1,13 @@
 // String(Chuỗi)
 "Hello world";
-"My name is Evondev";
+"My name is tinh";
 `I am frontend developer`;
 // double quotes, single quote, backticks (template literal)
 const name = "Anh Tuan";
 const job = "Designer";
 // console.log(name);
 // console.log(typeof name);
-const newStr = "My name is Evondev and I am Frontend Developer";
+const newStr = "My name is tinh and I am Frontend Developer";
 const newStr2 = "My name is " + name + " and I am " + job;
 // console.log(newStr2);
 // ${variable}

@@ -1,14 +1,14 @@
-// 1. Đảo ngược một chuỗi. Ví dụ: "My name is evondev" -> "evondev is name My";
+// 1. Đảo ngược một chuỗi. Ví dụ: "My name is tinh" -> "tinh is name My";
 function reverseString(str) {
   if (!str) return null;
   // split(" ")
-  // ["My", "name", "is", "evondev"]
+  // ["My", "name", "is", "tinh"]
   // const arrStr = str.split(" ");
   // const reverseStr = arrStr.split(" ").reverse().join(" ");
   // chaining methods
   return str.split(" ").reverse().join(" ");
 }
-console.log(reverseString("My name is evondev"));
+console.log(reverseString("My name is tinh"));
 // [1,2,3,4,5].reverse() -> [5,4,3,2,1]
 // 2. Đảo ngược một chuỗi bao gôm các kí tự. Ví dụ: "i love" -> "evol i"
 function reverseWord(str) {
@@ -23,7 +23,7 @@ function reverseWord(str) {
   console.log(arrStr);
 }
 reverseWord("i love");
-// 3. In hoa chữ cái đầu trong chuỗi ví dụ: "my name is evondev" -> "My Name Is Evondev"
+// 3. In hoa chữ cái đầu trong chuỗi ví dụ: "my name is tinh" -> "My Name Is tinh"
 function capitalizeWord(word = "") {
   if (word.length === 0) return null;
   let newWord = word.toLowerCase().charAt(0).toUpperCase();
@@ -40,4 +40,4 @@ function capitalizeStr(str) {
     .join(" ");
   console.log(result);
 }
-capitalizeStr("my name is evondev");
+capitalizeStr("my name is tinh");

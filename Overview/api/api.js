@@ -16,6 +16,6 @@ function handleError() {
   console.log("Something wrong with your api");
   userEl.textContent = "No data found";
 }
-// console.log(displayUser("evondev"));
+// console.log(displayUser("tinh"));
 displayUser("asbc").catch(handleError);
 // cors

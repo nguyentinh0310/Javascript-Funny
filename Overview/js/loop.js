@@ -122,7 +122,7 @@ for (let value of numbers) {
   value += 10;
   a.push(value);
 }
-for (let c of "evondev") {
+for (let c of "tinh") {
   console.log(c);
 }
 console.log(a);

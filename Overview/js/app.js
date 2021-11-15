@@ -1,6 +1,6 @@
 // console.log("hello world!");
 // Biến - Variables
-// camelCase -> evondev -> evonDev
+// camelCase -> tinh -> tinh
 // i love my school -> iLoveMySchool
 // Không nên đặt tiếng Việt, hoặc có dấu, hoặc các kí tự đặc biệt, các từ hệ thống, tentoi, toila, canhgiua,
 // Delcare variable: Khai báo biến
