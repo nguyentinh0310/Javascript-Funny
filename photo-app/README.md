@@ -1,1 +1,1 @@
-![](https://github.com/nguyentinh0310/Pho-app/blob/main/images/bg.png)
+![](https://github.com/nguyentinh0310/Photo-app/blob/main/photo-app/images/bg.png)
