@@ -193,9 +193,9 @@
       "id": 39
     },
     {
-      "title": "Trang phục",
+      "title": "Âm nhạc",
       "categoryId": 3,
-      "image": "https://picsum.photos/id/758/300/300",
+      "image": "https://picsum.photos/id/1674/300/300",
       "id": 40
     },
     {
@@ -413,12 +413,6 @@
       "categoryId": 1,
       "image": "https://picsum.photos/id/239/300/300",
       "id": 77
-    },
-    {
-      "title": "Núi đồi",
-      "categoryId": 1,
-      "image": "https://picsum.photos/id/1018/300/300",
-      "id": 78
     },
     {
       "title": "Cây cối",

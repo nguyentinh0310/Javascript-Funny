@@ -338,7 +338,9 @@ body.dark {
   }
 }
 
-@media only screen and (max-width: 576px) {
+.btn-room {
+  background-color: #f50 !important;
+  color: #fff !important;
 }
 
 @media only screen and (max-width: 480px) {
