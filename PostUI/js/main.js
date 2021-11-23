@@ -22,16 +22,14 @@ async function handleFilterChange(filterName, filterValue) {
 }
 
 function registerPostDeleteEvent() {
-  document.addEventListener('post-delete', async (event) => {
+  document.addEventListener('post-delete', async (e) => {
     try {
-      const post = event.detail;
-      const message = `Are you sure to remove post "${post.title}"?`;
-      if (window.confirm(message)) {
-        await postApi.remove(post.id);
-        await handleFilterChange();
+      const post = e.detail;
+      console.log('dispatch remove', post);
+      await postApi.remove(post.id);
+      await handleFilterChange();
 
-        toast.success('Remove post successfully');
-      }
+      toast.success('Remove post successfully');
     } catch (error) {
       console.log('failed to remove post', error);
       toast.error(error.message);
