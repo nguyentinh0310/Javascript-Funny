@@ -21,6 +21,24 @@ async function handleFilterChange(filterName, filterValue) {
   }
 }
 
+function registerPostDeleteEvent() {
+  document.addEventListener('post-delete', async (event) => {
+    try {
+      const post = event.detail;
+      const message = `Are you sure to remove post "${post.title}"?`;
+      if (window.confirm(message)) {
+        await postApi.remove(post.id);
+        await handleFilterChange();
+
+        toast.success('Remove post successfully');
+      }
+    } catch (error) {
+      console.log('failed to remove post', error);
+      toast.error(error.message);
+    }
+  });
+}
+
 (async () => {
   try {
     const url = new URL(window.location);
@@ -31,6 +49,8 @@ async function handleFilterChange(filterName, filterValue) {
     history.pushState({}, '', url);
     const queryParams = url.searchParams;
 
+    registerPostDeleteEvent();
+
     initPagination({
       elementId: 'pagination',
       defaultParams: queryParams,
@@ -39,7 +59,6 @@ async function handleFilterChange(filterName, filterValue) {
       },
     });
 
-    
     initSearch({
       elementId: 'searchInput',
       defaultParams: queryParams,
@@ -47,7 +66,6 @@ async function handleFilterChange(filterName, filterValue) {
         handleFilterChange('title_like', page);
       },
     });
-
 
     handleFilterChange();
   } catch (error) {

@@ -42,13 +42,28 @@ export function createPostElement(post) {
     });
   }
 
-  // // add click event for edit button
-  // const editButton = liElement.querySelector('[data-id="edit"]')
-  // if(editButton){
-  //   editButton.addEventListener('click',(e) =>{
-  //     window.location.assign(`/add-edit-post.html?id=${post.id}`)
-  //   })
-  // }
+  // add click event for edit button
+  const editButton = liElement.querySelector('[data-id="edit"]')
+  if(editButton){
+    editButton.addEventListener('click',(e) =>{
+      window.location.assign(`/add-edit-post.html?id=${post.id}`)
+    })
+  }
+
+  
+  // add click event for remove button
+  const removeButton = liElement.querySelector('[data-id="remove"]')
+  if (removeButton) {
+    // khi click remove tạo tạo dispatch event bubbles lên tk cha
+    removeButton.addEventListener('click', () => {
+      const customEvent = new CustomEvent('post-delete',{
+        bubbles: true,
+        detail: post
+      })
+
+      removeButton.dispatchEvent(customEvent)
+    })
+  }
 
   return liElement;
 }
