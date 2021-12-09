@@ -1,0 +1,598 @@
+/* 
+    font-size: 100% -> 16px
+    1em = 1rem = 16px
+    em là đơn vị phụ thuộc vào thuộc tính font-size của chính nó hoặc phần tử chứa nó
+    rem là đơn vị phụ thuộc vào thuộc tính font-size của thẻ html
+*/
+/* 
+  thẻ inline có độ rộng bằng nội dung nó chứa
+  nếu có nhiêu thẻ inline nó vẫn nằm trên 1 hàng
+  bị hạn chế thuốc tính CSS
+*/
+/* 
+  thẻ block có độ rộng full
+  nếu có nhiêu thẻ block với nhau nó bị rớt xuống dòng
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+*::selection {
+  color: white;
+  background-color: orange;
+}
+
+html {
+  font-size: 62.5%; /* 10px */
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+:root {
+  --primary-color: #00aefd;
+  --secondary-color: #ffa400;
+}
+/****************************************************************/
+
+.font {
+  font-size: 1.6rem;
+  font-style: italic;
+  line-height: 1.5;
+  max-width: 30rem;
+  letter-spacing: 1px;
+  word-spacing: 3px;
+  /* hiển thị dấu 3 chấm trên 1 hàng */
+  /* white-space: nowrap; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* hiển thị dấu 3 chấm trên hàng thứ 3 */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* word-break: break-all;
+    word-break: break-word; */
+}
+/****************************************************************/
+
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 1rem 2rem;
+  display: inline-block;
+  color: var(--primary-color);
+}
+
+@supports (-webkit-background-clip: text) {
+  .title {
+    color: transparent;
+    background-image: linear-gradient(
+      to right bottom,
+      var(--primary-color),
+      var(--secondary-color)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+}
+
+.background {
+  width: 50%;
+  height: 50vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(0, 173, 253, 0.842),
+      rgba(255, 166, 0, 0.788)
+    ),
+    url("https://images.unsplash.com/photo-1633505528166-407a12a88a04?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1332&q=80");
+  background-size: cover;
+  filter: grayscale(2);
+  transition: all 0.25s linear;
+  /* opacity: 0 vẫn chiếm diện tích,có thể ấn vô đc */
+  /* visibility: hidden; vẫn chiếm diện tích,không ấn vô đc */
+  /* display: none; ko chiếm diện tích, không ấn vô đc */
+}
+.background:hover {
+  filter: none;
+}
+
+/****************************************************************/
+
+.shadow {
+  width: 50%;
+  height: 50vh;
+  margin: 1rem;
+  background-color: var(--primary-color);
+  /* box-shadow: x y blur scale color; */
+  box-shadow: 6px 11px 13px 2px var(--secondary-color);
+}
+/* độ ưu tiên: Tag < Class <id < !important*/
+/* (x,y,z) */
+
+/****************************************************************/
+
+/* 
+    li:first-child
+    li:last-child
+    li:nth-child(2)
+    li:nth-last-child(2)// kế cuối
+    li:not(:first-child)
+    li:nth-child(odd)
+    li:nth-child(even)
+    li:nth-child(2n+1)
+
+    li:first-of-type
+    li:last-of-type
+    li:nth-of-type(2)
+
+*/
+
+/****************************************************************/
+
+/* Combination */
+/* + là liền kề phía sau cùng cấp */
+h3 + .title {
+  color: green;
+}
+/* ~ là cùng cấp ko nhất thiết liền kề phía sau */
+h3 ~ .title2 {
+  color: #ffa400;
+}
+/****************************************************************/
+
+/* a bắt đầu = https */
+a[href^="https"] {
+  color: plum;
+}
+/* a kiến thúc = .vn */
+a[href$=".vn"] {
+  color: cyan;
+}
+/* a có chứa www */
+a[href*="www"] {
+  color: violet;
+}
+/* chính xác */
+div[data-title="value"] {
+  color: red;
+}
+/* chữ cái đầu */
+p::first-letter {
+  color: red;
+  font-weight: bold;
+}
+p::first-line {
+  color: orange;
+  font-weight: bold;
+}
+
+/****************************************************************/
+
+/* transion */
+/* ease nhanh đều */
+/* linear chậm đều */
+
+/* tranform */
+/* scale(),rotate(), translate(), skew() */
+
+/****************************************************************/
+
+/* before after */
+.title__content {
+  position: relative;
+  padding-left: 2rem;
+}
+.title__content::before {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  border-radius: 1rem;
+  background-color: #ffa400;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* before after 2*/
+.line {
+  text-align: center;
+  position: relative;
+  font-size: 3rem;
+}
+
+.line::after {
+  content: "";
+  width: 100%;
+  height: 3px;
+  background-color: #ffa400;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.line-text {
+  display: inline-block;
+  padding: 10px;
+  background-color: #fff;
+  position: relative;
+  z-index: 2;
+}
+
+/* before after 3*/
+.icon {
+  width: 5rem;
+  height: 5rem;
+  font-size: 3rem;
+  border-radius: 4px;
+  color: purple;
+  position: relative;
+  margin: 3rem auto;
+}
+.icon::after {
+  content: "";
+  border-radius: inherit;
+  background-color: currentColor;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.25;
+}
+
+.icon-user {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* before after 4*/
+.effect {
+  text-decoration: none;
+  display: inline-block;
+  padding: 2rem;
+  font-size: 3rem;
+  text-align: center;
+  background-color: white;
+  border: 1px solid orange;
+  margin: 5rem;
+  transition: color 0.25s linear;
+  position: relative;
+  z-index: 1;
+}
+
+.effect::before {
+  content: "";
+  width: 100%;
+  height: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #ffa400;
+  z-index: -1;
+  transition: all 0.25s linear;
+}
+.effect:hover::before {
+  height: 100%;
+}
+
+/* before after transform*/
+.boxed {
+  width: 5rem;
+  height: 5rem;
+  position: relative;
+  margin: 0 5rem;
+}
+
+.boxed::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: orange;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+
+.effect:hover {
+  color: white;
+}
+
+@keyframes move {
+  /* from to */
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(20rem);
+  }
+}
+
+/****************************************************************/
+/* FLEX */
+.list {
+  display: flex;
+  margin: 5rem;
+  font-size: 2rem;
+  /* flex-direction: row;*/ /* mặc định */
+  /* flex-direction: row-reverse; */ /* chạy ngược lại */
+  /* align-items: stretch; */ /* mặc định */
+  /* align-items: baseline;*/ /* căn theo đuôi chữ */
+  /* justify-content: baseline; */
+  flex-wrap: nowrap; /* không rơi xuống hàng */
+  flex-wrap: wrap; /* rơi xuống hàng */
+  flex-flow: row nowrap;
+  flex-direction: column;
+}
+.list__item {
+  padding: 1rem;
+  background-color: orange;
+  margin: 5px;
+  order: 0;
+}
+.list__item:nth-child(2) {
+  order: 1;
+}
+.list__item:nth-child(3) {
+  order: 4;
+}
+.list__item:last-child {
+  order: 2;
+}
+
+.layout {
+  display: flex;
+}
+
+.icon2 {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 1rem;
+  margin: 3rem;
+  font-size: 3rem;
+  background-color: #ffa400;
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.layout p {
+  font-size: 2rem;
+  width: calc(100% - 10rem);
+}
+
+/* 320 480 768 1024 1280 1366 1440 1660 1920 */
+/* min-width: 1024 -> >= 1024px */
+/* min-width: 1023 -> <= 1023px */
+@media screen and (max-width: 1023px) {
+}
+@media screen and (min-width: 1024px) {
+}
+/****************************************************************/
+/* box-shadow */
+.square {
+  margin: 5rem 2rem;
+  width: 5rem;
+  height: 5rem;
+  background-color: #ffa400;
+  box-shadow: 6rem 0 0 0 green, 12rem 0 0 0 red, 0 6rem 0 0 red,
+    6rem 6rem 0 0 orange, 12rem 6rem 0 0 green, 0 12rem 0 0 green,
+    6rem 12rem 0 0 red, 12rem 12rem 0 0 orange;
+}
+.circle {
+  margin: 15rem 2rem 0 0;
+  width: 10rem;
+  height: 10rem;
+  background-color: orange;
+  border-radius: 10rem;
+  box-shadow: 5rem 0 0 0 red;
+}
+
+input{
+  margin-left: 10rem;
+  background-color: orange;
+  box-shadow: inset 0 0 0 50px orange;
+}
+/****************************************************************/
+.polygon{
+  margin: 5rem auto;
+  width: 200px;
+  height: 300px;
+  background-color: #f00;
+  border-radius: 5px;
+  /* x y */
+  clip-path: polygon(0 0,100% 0, 100% 100%,50% 75%,0 100%);
+}
+
+/****************************************************************/
+
+/* transform: skew */
+.skew {
+  width: 100%;
+  height: 50rem;
+  margin: 0 auto;
+  position: relative;
+}
+.skew::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to right bottom, #07047e, #1a3bda);
+  transform: skewY(-5deg) translateY(-7rem);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+/* #fa4c53 #fd9c84 */
+.boxed3 {
+  margin: 5rem;
+  width: 10rem;
+  height: 4rem;
+  /* border: 10px solid orange;
+  border-image-source: linear-gradient(to right bottom,
+  #fa4c53, #fd9c84); */
+
+  border-radius: 10rem;
+  box-shadow: -2px -2px 0 2px #fa4c53, 0 0 0 4px #fd9c84;
+}
+
+/****************************************************************/
+
+/* animation loading */
+.loading {
+  width: 7rem;
+  height: 7rem;
+  margin: 5rem auto;
+  position: relative;
+}
+.loading div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(calc(var(--value) * 45deg));
+}
+.loading div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border: 4px solid #00aefd;
+  border-radius: 50%;
+  filter: hue-rotate(calc(var(--value) * 45deg));
+  animation: loading 1s infinite linear;
+  animation-delay: calc(var(--value) * 0.125s);
+}
+@keyframes loading {
+  to {
+    transform: scale(0);
+  }
+}
+/* 
+  circle = 360deg
+  360 / 8 =45
+  animation delay = duration(2s) / 8 =0.25s
+*/
+/****************************************************************/
+/* grid 1 & 2 */
+
+.grid {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; */
+  grid-template-columns: repeat(4, 1fr);
+  /* tạo khoảng chống các cột: gap */
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  /* chiều cao theo cột  */
+  /* grid-template-rows: 200px 400px;  */
+  /* mminmax() */
+  /* ko lấp đầy khoảng chống */
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  /*  lấp đầy khoảng chống */
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+.grid-item {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* grid 3 & 4 */
+.grid2 {
+  display: grid;
+  padding: 40px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 200px);
+  grid-gap: 20px;
+}
+
+.grid2 .grid-item:first-child {
+  /* grid-column: grid-column-start/grid-column-end */
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-column: 1/3;
+  /* grid-row: grid-row-start/grid-row-end */
+  grid-row: 1/3;
+}
+
+.grid2 .grid-item:nth-child(4){
+  grid-column: 1/2;
+}
+
+.grid2 .grid-item:nth-child(5){
+  grid-column: 2/3;
+}
+
+.grid2 .grid-item:last-child{
+  grid-column: 3/5;
+  grid-column: 3/-1;
+  grid-column: 3/ span 2;
+  grid-row: 2/4;
+  grid-row: 2/-1;
+  grid-row: 2/ span 2;
+}
+
+/* grid 5 */
+.grid3 {
+  display: grid;
+  padding: 40px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 200px);
+  grid-gap: 20px;
+  /* sử dụng phần tử cha */
+  grid-template-areas:
+  "h1 h1 h2 h3"
+  "h1 h1 h6 h6"
+  "h4 h5 h6 h6";
+
+  /* 
+  h1 h1 h2 h3
+  h1 h1 h6 h6
+  h4 h5 h6 h6
+  */
+}
+.grid3 .grid-item:first-child{
+    /* sử dụng phần tử con */
+    grid-area: h1;
+}
+
+.grid3 .grid-item:nth-child(4){
+  grid-area: h4;
+}
+
+.grid3 .grid-item:nth-child(5){
+  grid-area: h5;
+}
+.grid3 .grid-item:last-child{
+  grid-area: h6;
+}
+
+/****************************************************************/
+/*  16/9 -> x:y -> y/x * 100%  = value (use for padding-bottom)*/
+.responsive-video{
+  position: relative;
+  height: 0;
+  padding-bottom: calc((9/16) *100%);
+}
+.responsive-video iframe{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
